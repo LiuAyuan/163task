@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
+    <link rel="stylesheet" href=""/>
+    <title></title>
+    <style>
+        body{  margin: 0;  padding: 0;  }
+        .chenggong{  border-top:1px solid #e6e6e6;  width: 100%;  margin-top: 50px;  }
+        .tp{  width: 100%;  margin-top: 15%;  }
+        .tp img{  width: 45%;  height: 45%;  display: block;  margin: 0 auto;  }
+        .red{  color:red;  font-size: 0.94em;  margin-left: 10px;  margin-right: 10px;  }
+        .red2{color:red;  font-size: 0.94em;  margin-left: 15px;  margin-right: 10px; text-align: center}
+        .font{  margin-top: 16%;  }
+        .line{  font-size: 0.94em;  line-height: 25px;  font-family: "微软雅黑";  margin-left: 10px;  margin-right: 10px;  }
+        .footer{ width: 100%;  overflow: hidden;  height: 60px;  background-color: #ff6633;  position: relative;  margin-top: 20%;}
+
+        .footer h3{  color: white;  text-align: center;  }
+        @media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
+            .footer{  margin-top:20%;}
+        }
+        @media (device-height:667px) and (-webkit-min-device-pixel-ratio:2){
+            .footer{  margin-top:31%;  }
+        }
+        @media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){
+            .footer{ margin-top:33%;}
+        }
+        @media (device-height:640px) and (-webkit-min-device-pixel-ratio:2){
+            .footer{ margin-top:22%;}
+        }
+        @media (device-height:854px) {.footer{ margin-top:47%;}}
+    </style>
+    <script type="text/javascript">
+        function closeWP() {
+            var Browser = navigator.appName;
+            var indexB = Browser.indexOf('Explorer');
+
+            if (indexB > 0) {
+                var indexV = navigator.userAgent.indexOf('MSIE') + 5;
+                var Version = navigator.userAgent.substring(indexV, indexV + 1);
+
+                if (Version >= 7) {
+                    window.open('', '_self', '');
+                    window.close();
+                }
+                else if (Version == 6) {
+                    window.opener = null;
+                    window.close();
+                }
+                else {
+                    window.opener = '';
+                    window.close();
+                }
+
+            }
+            else {
+                window.close();
+            }
+        }
+        //
+        function closeWP2() {
+            var Browser = navigator.appName;
+            var indexB = Browser.indexOf('Explorer');
+
+            if (indexB > 0) {
+                var indexV = navigator.userAgent.indexOf('MSIE') + 5;
+                var Version = navigator.userAgent.substring(indexV, indexV + 1);
+
+                if (Version >= 7) {
+                    window.open('', '_self', '');
+                    window.close();
+                }
+                else if (Version == 6) {
+                    window.opener = null;
+                    window.close();
+                }
+                else {
+                    window.opener = '';
+                    window.close();
+                }
+
+            }
+            else {
+                window.close();
+            }
+        }
+
+        function newDoc()
+        {
+            window.location.assign("index.html");
+        }
+    </script>
+</head>
+<body>
+<div class="chenggong">
+    <div class="tp">
+        <img src="img/iconfont-wancheng.png" alt=""/>
+    </div>
+    <div class="font">
+        <p class="red2">恭喜你 sda，报名成功！</p>
+        <p class="line">请您于7日内携带资料前往您所报名的驾校确认报名信息，并支付报名费用。</p>
+        <p class="red">携带资料说明：</p>
+        <p class="line"> &nbsp;&nbsp;&nbsp;报名时请您携带身份证，体检表，户口本，报名电子订单二维码，相关流程如有疑问请致电：400-6269255。</p>
+    </div>
+    <div class="footer">
+        <h3> <a href="javascript:window.opener=null;"onclick="closeWP()">完成</a>
+            <a href="javascript:window.opener=null;window.open(location, '_self').closeWP2();;">完成</a>
+            <input type="button" value="加载新文档" onclick="newDoc()">
+            <a href="index.html">完成4</a>
+            <a href="javascript:;"onclick="newDoc()">wangcheng</a>
+
+        </h3>
+    </div>
+</div>
+
+</body>
+<ml>
