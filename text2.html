@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>jQuery表单验证--验证电话号码</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="rs/js/jquery.js"></script>
+    <script type="text/javascript">
+        function checkForm(o){
+            var re=/^(13[0-9]{9})|(15[89][0-9]{8})$/;
+            if(!re.test(o.tel.value)){
+                alert('请输入正确的手机号码。');
+                return false;
+            }}
+    </script>
+
+</head>
+<body>
+<form class="form" method="post" id="form" onsubmit="return checkForm(this)" action="">
+    电话号码：<input id="tel" type="text" maxlength="11" name="tel"/>
+    <button type="submit" name="submit" value="提交"/>提交
+</form>
+</body>
+</html>

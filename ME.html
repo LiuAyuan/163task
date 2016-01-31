@@ -1,118 +1,171 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
+<!doctype html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
-    <link rel="stylesheet" href=""/>
-    <title></title>
-    <style>
-        body{  margin: 0;  padding: 0;  }
-        .chenggong{  border-top:1px solid #e6e6e6;  width: 100%;  margin-top: 50px;  }
-        .tp{  width: 100%;  margin-top: 15%;  }
-        .tp img{  width: 45%;  height: 45%;  display: block;  margin: 0 auto;  }
-        .red{  color:red;  font-size: 0.94em;  margin-left: 10px;  margin-right: 10px;  }
-        .red2{color:red;  font-size: 0.94em;  margin-left: 15px;  margin-right: 10px; text-align: center}
-        .font{  margin-top: 16%;  }
-        .line{  font-size: 0.94em;  line-height: 25px;  font-family: "微软雅黑";  margin-left: 10px;  margin-right: 10px;  }
-        .footer{ width: 100%;  overflow: hidden;  height: 60px;  background-color: #ff6633;  position: relative;  margin-top: 20%;}
-
-        .footer h3{  color: white;  text-align: center;  }
-        @media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){
-            .footer{  margin-top:20%;}
-        }
-        @media (device-height:667px) and (-webkit-min-device-pixel-ratio:2){
-            .footer{  margin-top:31%;  }
-        }
-        @media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){
-            .footer{ margin-top:33%;}
-        }
-        @media (device-height:640px) and (-webkit-min-device-pixel-ratio:2){
-            .footer{ margin-top:22%;}
-        }
-        @media (device-height:854px) {.footer{ margin-top:47%;}}
-    </style>
-    <script type="text/javascript">
-        function closeWP() {
-            var Browser = navigator.appName;
-            var indexB = Browser.indexOf('Explorer');
-
-            if (indexB > 0) {
-                var indexV = navigator.userAgent.indexOf('MSIE') + 5;
-                var Version = navigator.userAgent.substring(indexV, indexV + 1);
-
-                if (Version >= 7) {
-                    window.open('', '_self', '');
-                    window.close();
-                }
-                else if (Version == 6) {
-                    window.opener = null;
-                    window.close();
-                }
-                else {
-                    window.opener = '';
-                    window.close();
-                }
-
-            }
-            else {
-                window.close();
-            }
-        }
-        //
-        function closeWP2() {
-            var Browser = navigator.appName;
-            var indexB = Browser.indexOf('Explorer');
-
-            if (indexB > 0) {
-                var indexV = navigator.userAgent.indexOf('MSIE') + 5;
-                var Version = navigator.userAgent.substring(indexV, indexV + 1);
-
-                if (Version >= 7) {
-                    window.open('', '_self', '');
-                    window.close();
-                }
-                else if (Version == 6) {
-                    window.opener = null;
-                    window.close();
-                }
-                else {
-                    window.opener = '';
-                    window.close();
-                }
-
-            }
-            else {
-                window.close();
-            }
-        }
-
-        function newDoc()
-        {
-            window.location.assign("index.html");
-        }
-    </script>
+    <title>Document</title>
 </head>
 <body>
-<div class="chenggong">
-    <div class="tp">
-        <img src="img/iconfont-wancheng.png" alt=""/>
-    </div>
-    <div class="font">
-        <p class="red2">恭喜你 sda，报名成功！</p>
-        <p class="line">请您于7日内携带资料前往您所报名的驾校确认报名信息，并支付报名费用。</p>
-        <p class="red">携带资料说明：</p>
-        <p class="line"> &nbsp;&nbsp;&nbsp;报名时请您携带身份证，体检表，户口本，报名电子订单二维码，相关流程如有疑问请致电：400-6269255。</p>
-    </div>
-    <div class="footer">
-        <h3> <a href="javascript:window.opener=null;"onclick="closeWP()">完成</a>
-            <a href="javascript:window.opener=null;window.open(location, '_self').closeWP2();;">完成</a>
-            <input type="button" value="加载新文档" onclick="newDoc()">
-            <a href="index.html">完成4</a>
-            <a href="javascript:;"onclick="newDoc()">wangcheng</a>
 
-        </h3>
-    </div>
-</div>
+<form id="form1" action="${pageContext.request.contextPath}/regist.do" method="post">
 
+
+    <div class="main">
+
+        <div class="lx">
+
+            <div class="products">
+                <p class="font">驾照类型：</p>
+                <c:forEach items="${carType}" var="car">
+                    <p class="C1" onclick="fontColor(this)"><input id=drive${car.code} type="radio" name="idcardnumber" value="${car.typeid}"/>
+                        <label for=drive${car.code}>${car.code}${car.name}</label>
+
+                    </p>
+                </c:forEach>
+            </div>
+            <input id="selectedschool" type="hidden" name="schoolid" value="">
+            <div class="wrap">
+                <p class="font">报考驾校：</p>
+                <a id="selected" class="onefoot" onclick="clicks('1')" >一步互联网驾校 ></a>
+            </div>
+        </div>
+        <!------------------------------->
+        <div id="1" style="display: none;">
+            <div class="clear"></div>
+
+
+            <div class="form-group">
+                <input id="search"class="form-control" type="text" placeholder="搜索"/>
+                <img class="fdj" src="img/sousuo.png" alt="" onclick="searchschool()"/>
+            </div>
+
+            <div id="schoollist">
+
+            </div>
+
+
+
+            <div id="pagbean" class="row3" >
+
+
+            </div>
+        </div>
+        <!------->
+        <input id="classtypeid" type="hidden" name="classtypeid" value="">
+        <div id="classtype" class="products" style="border:0">
+
+        </div>
+
+        <div id="2" style="display: none;">
+            <div class="clear"></div>
+            <div class="yb" ><h5>一步特惠班详情</h5></div>
+            <div class="xq">
+                <div class="clear"></div>
+                <!------------影藏详情------------------>
+                <div id="classifolist" class="xq" >
+
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="msh">
+                <h4 >课程描述</h4>
+                <p id="desc" class="shfz">
+            </div>
+
+        </div>
+        <div class="clear"></div>
+        <!------------影藏详情------------------>
+
+
+        <div class="clear"></div>
+
+        <div class="zhn">
+            <input id="username" type="text"  class="form-control" placeholder="真实姓名" name="name" style="border-bottom:1px solid #e6e6e6">
+            <input class="form-control" name="telephone"  id="photo" type="text" placeholder="电话号码："  />
+
+
+        </div>
+        <div id="warn" style="text-align: center;"></div>
+        <div  class="clear"></div>
+        <div class="container">
+            <a href="" class="wxts" >温馨提示</a>
+            <p class="rzh">&nbsp;&nbsp;请认真填写以上信息，该信息将作为报名信息录入车考驾照系统内，如果信息错误，将影响您的报名流程。</p>
+        </div>
+        <div class="footer" onclick="sunmitForm()">
+            <h3>提交</h3>
+        </div>
+    </div>
+
+</form>
+<script>
+    alert("haha");
+</script>
+<script>
+    $('form :input').blur(function(){
+        var $parent = $(this).parent();
+        $parent.find(".formtips").remove();
+
+        if( $(this).is('#photo') ){
+            if( this.value=="" || ( this.value!="" && ! /^1[3458]\d{9}$/.test(this.value) ) ){
+                //  var errorMsg = '请输入正确的电话号码';
+                var errorMsg ="";
+                $parent.append('<span class="formtips onError" style="color:red;height: 40px;display: block;line-height: 20px;text-align: left;font-size: 12px;">'+errorMsg+'</span>');
+            }else{
+                var okMsg = '输入正确.';
+                $parent.append('<span class="formtips onSuccess" style="height: 40px;display: block;line-height: 40px;text-align: center;margin-top: 20px>'+okMsg+'</span>');
+            }
+        }
+    }).keyup(function(){
+        $(this).triggerHandler("blur");
+    }).focus(function(){
+        $(this).triggerHandler("blur");
+    });//end bl
+
+
+
+
+    function clicks(show) {
+        var shoeid = document.getElementById(show);
+
+        if (shoeid.style.display == 'none') {
+            shoeid.style.display = '';
+        }
+        else {
+            shoeid.style.display = 'none';
+        }
+
+        return false;
+    }
+
+    /*********************************/
+    var perDiv=null;
+    function fontColor(_this)
+    {
+        if(perDiv) perDiv.style.color='';
+        _this.style.color='#ff6633'
+        perDiv=_this;
+    }
+    /********************************/
+    /*****************班级**************/
+    var perDiv=null;
+    function classColor(_this,classtypeid)
+    {
+        if(perDiv) perDiv.style.color='';
+        _this.style.color='#ff6633'
+        perDiv=_this;
+        $("#classtypeid").val(classtypeid);
+    }
+    /********************************/
+
+    var perDiv=null;
+    function chgColor(_this,schoolid,name)
+    {
+        if(perDiv) perDiv.style.border='';
+        _this.style.border='2px solid #ff6633';
+        perDiv=_this;
+
+        $("#selectedschool").val(schoolid);
+        $("#selected").text(name);
+    }
+</script>
 </body>
-<ml>
+</html>
